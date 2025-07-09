@@ -1,0 +1,14 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# VSCode settings (optional)
+.vscode/
+
+# Chroma DB / vector storage
+chroma_store/
+chroma_storage/
+*.sqlite3
+
+# Ollama models (if any are downloaded later)
+*.bin
