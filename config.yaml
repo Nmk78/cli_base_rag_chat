@@ -1,0 +1,33 @@
+app:
+  name: Team Cyber Preal
+  debug: true
+
+llm:
+  provider: ollama         # or "openai", "anthropic", etc.
+  model: llama3.2:latest            # e.g., llama3, mistral, gpt-3.5-turbo
+  embedding_model: "mxbai-embed-large:latest"
+  temperature: 0.7
+  max_tokens: 1024
+
+embedding:
+  model: nomic-embed-text
+
+retriever:
+  collection_name: cybersecurity_data
+  persist_directory: ./chroma_store
+
+splitter:
+  chunk_size: 500
+  chunk_overlap: 50
+
+prompt:
+  format: |
+    Based on the context below, answer the question clearly and concisely.
+    Use bullet points if applicable. If the answer isn't found, say so.
+
+    Context:
+    {context}
+
+    Question: {question}
+
+    Answer:

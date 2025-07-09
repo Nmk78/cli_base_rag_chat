@@ -1,0 +1,4 @@
+Hello, this is a simple data file.
+Line 1: Sample text.
+Line 2: Another example.
+Line 3: End of data.
