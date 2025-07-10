@@ -44,6 +44,7 @@ def load_and_add_data(path):
     print("Loading data...")
     loader = CSVLoader(path, encoding="utf-8")
     chunks = loader.load_and_split()
+    add_data_to_vector_store(chunks)
     print(f"Loaded {len(chunks)} chunks from the CSV file.")
     print(f"First 2 chunks {chunks[:2]} ")
 
