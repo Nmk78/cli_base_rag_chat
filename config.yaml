@@ -1,6 +1,6 @@
 app:
   name: Team Cyber Preal
-  debug: true
+  debug: True
 
 llm:
   provider: ollama         # or "openai", "anthropic", etc.

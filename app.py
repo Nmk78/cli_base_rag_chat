@@ -3,25 +3,17 @@ from src.config_loader import load_config
 config = load_config()
 
 from langchain_ollama import OllamaLLM
-from langchain_chroma import Chroma
 from src.rag_chain import build_rag_chain
 from src.prep import get_vector_store
+from src.ollama_instance import get_llm
+from src.retriever import get_retriever
 
 # Initialize LLM
-llm = OllamaLLM(
-                model=config['llm']['model'],
-                temperature=config['llm']['temperature'],
-                max_tokens=config['llm']['max_tokens'],
-                streaming=True
-                )
+llm = get_llm()
 
 # Load vector DB retriever
 vectorStore = get_vector_store()
-retriever = vectorStore.as_retriever(
-    search_kwargs={
-        "k": 5,  # Number of documents to retrieve
-    }
-)
+retriever = get_retriever()
 
 # Build the chain
 qa_chain = build_rag_chain(llm, retriever)
